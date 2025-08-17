@@ -1,5 +1,5 @@
 import React from 'react'
-import Navbar from './navbar'
+import Navbar from './navbar2'
 import BookCover from '../images/bookshelf.png';
 import Book1 from '../images/digitalbook.png';
 import Book2 from '../images/bookimages.png';
@@ -12,7 +12,7 @@ const AboutUs = () => {
     <>
         <Navbar />
         <div
-          className="hero min-h-85 mt-5 bg-gradient-to-r from-pink-500 to-orange-500"
+          className="hero min-h-85 bg-gradient-to-r from-pink-500 to-orange-500"
         >
           <div className="flex justify-center px-30 w-full text-center">
             <div className="max-w-md">
@@ -22,7 +22,6 @@ const AboutUs = () => {
                 We offer a wide range of books across genres — from fiction and self-help to academic
                  and children's books — all in one beautifully designed platform.
               </p>
-              <button className="btn bg-white rounded-xl ">Get Started</button>
             </div>
           </div>
         </div>

@@ -5,6 +5,7 @@ import Image1 from '../images/img1.jpg';
 import Image2 from '../images/img2.jpg';
 import Image3 from '../images/img3.jpg';
 import Footer from './footer';
+import DefaultBooks from './DefaultBooks';
 
 
 const Books = () => {
@@ -13,7 +14,7 @@ const Books = () => {
       <Navbar/>
     {/* book section */}
     <div
-      className="hero min-h-120 mt-3"
+      className="hero min-h-120"
       style={{
         // import the bookcover image form the images
         backgroundImage: `url(${BookCover})`,
@@ -43,52 +44,22 @@ const Books = () => {
        </div>
      </div>
      
+     <div className='mt-5'>
         <h1 className='text-2xl ml-30 underline font-bold'>Fantasy Collection</h1>
-     <div className="join flex justify-around h-100 p-5 lg:p-10 ">
-       <div className="w-50 h-70 bg-red-500 rounded-xl"
-       style={{ backgroundImage: `url(${Image1})`, backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
-       <div className="w-50 h-70 bg-blue-500 rounded-xl"
-       style={{ backgroundImage: `url(${Image2})`, backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
-       <div className="w-50 h-70 bg-blue-500 rounded-xl"
-       style={{ backgroundImage: `url(${Image2})`, backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
-       <div className="w-50 h-70 bg-green-500 rounded-xl"
-       style={{ backgroundImage: `url(${Image3})`, backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
-     </div>
-     
-      <h1 className='text-2xl ml-30 underline font-bold'>Mystery Collection</h1>
-     <div className="join flex justify-around h-100 p-5 lg:p-10 ">
-       <div className="w-50 h-70 bg-red-500 rounded-xl"
-       style={{ backgroundImage: `url(${Image1})`, backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
-       <div className="w-50 h-70 bg-blue-500 rounded-xl"
-       style={{ backgroundImage: `url(${Image2})`, backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
-       <div className="w-50 h-70 bg-blue-500 rounded-xl"
-       style={{ backgroundImage: `url(${Image2})`, backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
-       <div className="w-50 h-70 bg-green-500 rounded-xl"
-       style={{ backgroundImage: `url(${Image3})`, backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
-     </div>
-     
-     <h1 className='text-2xl ml-30 underline font-bold'>Historic & Fiction Collection</h1>
-     <div className="join flex justify-around h-100 p-5 lg:p-10 ">
-       <div className="w-50 h-70 bg-red-500 rounded-xl"
-       style={{ backgroundImage: `url(${Image1})`, backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
-       <div className="w-50 h-70 bg-blue-500 rounded-xl"
-       style={{ backgroundImage: `url(${Image2})`, backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
-       <div className="w-50 h-70 bg-blue-500 rounded-xl"
-       style={{ backgroundImage: `url(${Image2})`, backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
-       <div className="w-50 h-70 bg-green-500 rounded-xl"
-       style={{ backgroundImage: `url(${Image3})`, backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
+     <DefaultBooks/>
      </div>
 
-      <div className="join flex justify-around h-100 p-5 lg:p-10 ">
-       <div className="w-50 h-70 bg-red-500 rounded-xl"
-       style={{ backgroundImage: `url(${Image1})`, backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
-       <div className="w-50 h-70 bg-blue-500 rounded-xl"
-       style={{ backgroundImage: `url(${Image2})`, backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
-       <div className="w-50 h-70 bg-blue-500 rounded-xl"
-       style={{ backgroundImage: `url(${Image2})`, backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
-       <div className="w-50 h-70 bg-green-500 rounded-xl"
-       style={{ backgroundImage: `url(${Image3})`, backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
+     <div className='mt-25'>
+      <h1 className='text-2xl ml-30 underline font-bold'>Mystery Collection</h1>
+     <DefaultBooks/>
      </div>
+
+     <div className='mt-25 flex flex-col gap-20'>
+     <h1 className='text-2xl ml-30 underline font-bold'>Historic & Fiction Collection</h1>
+     <DefaultBooks/>
+
+     <DefaultBooks/>
+      </div>
 
      <Footer/>
     </>

@@ -3,6 +3,7 @@ import BookCover from '../images/bookCover2.png'
 import Image1 from '../images/img1.jpg'
 import Image2 from '../images/img2.jpg'
 import Image3 from '../images/img3.jpg'
+import DefaultBooks from './DefaultBooks'
 
 const Banner = () => {
   return (
@@ -43,29 +44,12 @@ const Banner = () => {
   </div>
 </div>
 
-<div className="join flex justify-around h-100 p-5 lg:p-10 ">
-  <div className="w-50 h-70 bg-red-500 rounded-xl"
-  style={{ backgroundImage: `url(${Image1})`, backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
-  <div className="w-50 h-70 bg-blue-500 rounded-xl"
-  style={{ backgroundImage: `url(${Image2})`, backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
-  <div className="w-50 h-70 bg-blue-500 rounded-xl"
-  style={{ backgroundImage: `url(${Image2})`, backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
-  <div className="w-50 h-70 bg-green-500 rounded-xl"
-  style={{ backgroundImage: `url(${Image3})`, backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
+<div className='flex flex-col gap-y-20'>
+<DefaultBooks/>
+<DefaultBooks/>
 </div>
 
-<div className="join flex justify-around h-100 p-5 lg:p-10 ">
-  <div className="w-50 h-70 bg-red-500 rounded-xl"
-  style={{ backgroundImage: `url(${Image1})`, backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
-  <div className="w-50 h-70 bg-blue-500 rounded-xl"
-  style={{ backgroundImage: `url(${Image2})`, backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
-  <div className="w-50 h-70 bg-blue-500 rounded-xl"
-  style={{ backgroundImage: `url(${Image2})`, backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
-  <div className="w-50 h-70 bg-green-500 rounded-xl"
-  style={{ backgroundImage: `url(${Image3})`, backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
-</div>
-
-<div className='w-full flex mt-5 justify-center'>
+<div className='w-full flex mt-25 justify-center'>
   <button className="btn rounded-xl bg-gradient-to-r from-pink-500 to-orange-500">View More</button>
 </div>
 

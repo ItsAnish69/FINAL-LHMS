@@ -33,6 +33,7 @@ const Login = () => {
       const reponse = await axios.post('http://localhost:5000/api/auth/login', userData);
       const token = reponse.token;
       localStorage.getItem("token", token)
+      //add the success alert 
       alert("Login Successfull")
       window.location.href = '/home'
      } catch(err){
