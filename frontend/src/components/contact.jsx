@@ -43,13 +43,13 @@ import { useState, setUserData } from 'react';
   return (
     <>
     <Navbar/>
-        <div className='w-full h-150 bg-[#ffd6a8] '>
+        <div className='w-full h-150 bg-[#ffd6a8]'>
         <div className="hero bg-base-200 text-[#1f4444]">
     <div className="hero-content text-center mt-10 ">
     <div className="max-w-md">
-      <h1 className="text-5xl font-bold">Get in Touch With Us</h1>
+      <h1 className="text-5xl font-bold">Get In Touch With Us</h1>
       <p className="py-6">
-        Have questions, feedback, or need support? We’re here to help. 
+        Have questions, feedback, or need support? We are here to help. 
         Fill out the form below or reach us through our email and phone number. Our team will get back to you as quickly as possible.
       </p>
       <button className="btn btn-primary bg-[#1f4444] text-white border-none hover:text-[#1f4444] hover:bg-white">Get Started</button>

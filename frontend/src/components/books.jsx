@@ -1,9 +1,7 @@
 import React from 'react';
 import Navbar from './navbar2';
 import BookCover from '../images/bookshelf.png';
-import Image1 from '../images/img1.jpg';
-import Image2 from '../images/img2.jpg';
-import Image3 from '../images/img3.jpg';
+import Image4 from '../images/img4.png';
 import Footer from './footer';
 import DefaultBooks from './DefaultBooks';
 
@@ -12,7 +10,7 @@ const Books = () => {
   return (
     <>
       <Navbar/>
-    {/* book section */}
+    {/* book section */} 
     <div
       className="hero min-h-120"
       style={{
@@ -24,9 +22,11 @@ const Books = () => {
     >
       <div className="flex justify-start px-30 w-full text-left">
         <div className="max-w-md">
-          <h1 className="mb-5 text-4xl font-bold">Ready to Transform your Library?</h1>
+          <h1 className="mb-5 text-4xl font-bold">Read More, Learn More!</h1>
           <p className="mb-5">
-           Get started from today and be prepare to experience the future of library management.
+          Unlock new knowledge with every page you turn. Whether it's fiction, history, 
+          or self-help, reading expands your mind, sharpens your thinking, and fuels lifelong 
+          learning.
           </p>
           <button className="btn rounded-xl bg-white mb-35">Get Started</button>
         </div>
@@ -43,25 +43,46 @@ const Books = () => {
          </div>
        </div>
      </div>
-     
+
      <div className='mt-5'>
-        <h1 className='text-2xl ml-30 underline font-bold'>Fantasy Collection</h1>
+        <h1 className='text-2xl ml-20 underline font-bold mb-10'>Fantasy Collection</h1>
      <DefaultBooks/>
      </div>
 
      <div className='mt-25'>
-      <h1 className='text-2xl ml-30 underline font-bold'>Mystery Collection</h1>
+      <h1 className='text-2xl ml-20 underline font-bold mb-10'>Mystery Collection</h1>
      <DefaultBooks/>
      </div>
 
-     <div className='mt-25 flex flex-col gap-20'>
-     <h1 className='text-2xl ml-30 underline font-bold'>Historic & Fiction Collection</h1>
+     <div className='mt-25 flex flex-col'>
+     <h1 className='text-2xl ml-20 underline font-bold mb-10'>Historic & Fiction Collection</h1>
      <DefaultBooks/>
-
+      {/* create a gap */}
+      <div className='my-10'></div>
      <DefaultBooks/>
       </div>
 
-     <Footer/>
+    <div
+      className="hero min-h-100 mt-30"
+      style={{
+        // import the bookcover image form the images
+        backgroundImage: `url(${Image4})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+      }}
+    >
+      <div className="flex justify-start px-30 w-full text-center">
+        <div className="max-w-md">
+          <h1 className="mb-5 text-4xl font-bold">Ready to Transform your Library?</h1>
+          <p className="mb-5">
+           Get started from today and be prepare to experience the future of library management.
+          </p>
+          <button className="btn rounded-xl ">Get Started</button>
+        </div>
+      </div>
+    </div>
+
+      <Footer/>
     </>
   )
 }

@@ -45,7 +45,7 @@ const ForgotPassword = () => {
          Please enter the email address associated with your account. We will send you a One-Time Password (OTP) to verify your identity.
       </p>
     </div>
-    <div className="card w-full bg-white max-w-sm mb-30 h-50 shrink-0 shadow-2xl">
+    <div className="card w-full bg-white max-w-sm h-50 relative bottom-10 shrink-0 shadow-2xl">
       <div className="card-body border">
         <fieldset className="fieldset text-black">
           <label className="label text-black">Email</label>

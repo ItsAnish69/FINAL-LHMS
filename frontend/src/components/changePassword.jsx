@@ -22,7 +22,11 @@ const ChangePassword = () => {
       e.preventDefault()
 
       if(!userData.newpass || !userData.confirmpass){
-        return alert('please, fill both the password')
+        return alert('please, fill both the password fields')
+      }
+
+      if(userData.newpass !== userData.confirmpass){
+        return alert("Passwords do not match!")
       }
 
       try{
@@ -37,7 +41,7 @@ const ChangePassword = () => {
 
     return ( 
         <>
-<div className="hero min-h-screen bg-gradient-to-r from-pink-500 to-orange-500 text-black">
+<div className="hero min-h-screen bg-gradient-to-r from-pink-500 to-orange-500 border">
     <div className="p-5 rounded-xl">
   <div className="hero-content flex-col lg:flex-row-reverse gap-40">
     <div className="text-center lg:text-left">
@@ -59,7 +63,7 @@ const ChangePassword = () => {
           name="newpass"
           />
           <label className="label text-black">Confirm Password</label>
-          <input type="password" className="input bg-[#d9d9d9] w-full" placeholder="Confirm New Password"
+          <input type="password" className="input bg-[#d9d9d9] w-full" placeholder="Enter Confirm Password"
           onChange={handleChange}
           name="confirmpass"
           />

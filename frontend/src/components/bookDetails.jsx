@@ -1,5 +1,6 @@
 import Footer from "./footer";
 import Navbar from "./navbar2";
+import Cover from "../images/img3.jpg";
 
 const BookDetail = () => {
   return (
@@ -10,7 +11,7 @@ const BookDetail = () => {
       {/* Book Cover */}
       <div className="flex justify-center">
         <img
-          src="https://via.placeholder.com/300x400"
+          src={Cover}
           alt="Book Cover"
           className="w-80 h-[430px] object-cover rounded-2xl shadow-lg"
         />

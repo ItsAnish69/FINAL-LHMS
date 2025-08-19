@@ -1,9 +1,10 @@
 import React from 'react'
 import Navbar from './navbar2'
-import BookCover from '../images/bookshelf.png';
 import Book1 from '../images/digitalbook.png';
 import Book2 from '../images/bookimages.png';
 import Book3 from '../images/bookvertical.png';
+import backgroundImage from '../images/background.png'
+import Img5 from '../images/img5.png';
 import Footer from './footer';
 
 
@@ -12,7 +13,12 @@ const AboutUs = () => {
     <>
         <Navbar />
         <div
-          className="hero min-h-85 bg-gradient-to-r from-pink-500 to-orange-500"
+          className="hero min-h-85 text-white"
+          style={{
+            backgroundImage: `url(${backgroundImage})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }}
         >
           <div className="flex justify-center px-30 w-full text-center">
             <div className="max-w-md">
@@ -65,6 +71,27 @@ const AboutUs = () => {
 </div>
 
 
+       <div className="hero w-full items-start mt-15 ">
+  <div className="hero-content flex-col lg:flex-row-reverse">
+    <img
+      src={Img5}
+      className="max-w-sm rounded-lg shadow-2xl h-65"
+    />
+    <div className="flex justify-center px-30 w-full text-center">
+            <div className="max-w-md">
+              <h1 className="mb-5 text-4xl font-bold">Why choose BookHut?</h1>
+              <p className="mb-5">
+              Our platform combines modern technology with intuitive design to provide the 
+              best library management experience for both borrowers and librarians. With BookHut, 
+              you gain access to a seamless digital library system that makes searching, borrowing,
+              and returning books faster and more efficient than ever before.
+              </p>
+            </div>
+          </div>
+</div>
+</div>
+
+
    <div className="hero w-full items-start mt-25">
   <div className="hero-content flex-col lg:flex-cols">
     <img
@@ -81,6 +108,7 @@ const AboutUs = () => {
           </div>
 </div>
 </div>
+
 
 <Footer/>
     </>

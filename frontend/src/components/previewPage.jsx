@@ -3,7 +3,7 @@ import Navbar from './navbar';
 import Banner from './Banner2';
 import Footer from './footer';
 
-export const Home = () => {
+export const PreviewPage = () => {
   return (
     <>
       <Navbar />
@@ -13,4 +13,4 @@ export const Home = () => {
   )
 }
 
-export default Home;
+export default PreviewPage;

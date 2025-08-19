@@ -1,20 +1,23 @@
-@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
 
+@font-face {
+  font-family: Lexend;
+  src: url('../src/assets/font/Lexend-SemiBold.ttf');
+}
 @import "tailwindcss";
 @plugin "daisyui" {
   themes: light --default, dark --prefersdark;
   themes: light;
 }
-
-
-body{
-  font-family: "Lexend", "sans-serif";
+@theme{
+  --font-lexend: "Lexend", sans-serif;
+  --font-playwrite:  "Lexend", cursive;
 }
+
 
 * {
   /* margin: 0;
   padding: 0; */
-  scroll-behavior: smooth;
   box-sizing: border-box;
 }
 

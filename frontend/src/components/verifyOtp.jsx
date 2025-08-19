@@ -45,7 +45,7 @@ const ForgotPassword = () => {
          Please enter the One-Time Password (OTP) sent to your email address. It is valid for only 15 minutes.
       </p>
     </div>
-    <div className="card w-full bg-white max-w-sm mb-30 h-50 shrink-0 shadow-2xl">
+    <div className="card w-full bg-white max-w-sm realtive bottom-10 h-50 shrink-0 shadow-2xl">
       <div className="card-body border">
         <fieldset className="fieldset text-black">
           <label className="label text-black">OTP</label>
