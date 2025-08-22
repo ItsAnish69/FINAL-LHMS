@@ -12,7 +12,7 @@ const Books = () => {
       <Navbar/>
     {/* book section */} 
     <div
-      className="hero min-h-120"
+      className="hero min-h-120 mt-15"
       style={{
         // import the bookcover image form the images
         backgroundImage: `url(${BookCover})`,
@@ -28,7 +28,7 @@ const Books = () => {
           or self-help, reading expands your mind, sharpens your thinking, and fuels lifelong 
           learning.
           </p>
-          <button className="btn rounded-xl bg-white mb-35">Get Started</button>
+          <button className="btn rounded-xl bg-white mb-35">Learn more</button>
         </div>
       </div>
     </div>
@@ -49,7 +49,7 @@ const Books = () => {
      <DefaultBooks/>
      </div>
 
-     <div className='mt-25'>
+     {/* <div className='mt-25'>
       <h1 className='text-2xl ml-20 underline font-bold mb-10'>Mystery Collection</h1>
      <DefaultBooks/>
      </div>
@@ -57,10 +57,9 @@ const Books = () => {
      <div className='mt-25 flex flex-col'>
      <h1 className='text-2xl ml-20 underline font-bold mb-10'>Historic & Fiction Collection</h1>
      <DefaultBooks/>
-      {/* create a gap */}
       <div className='my-10'></div>
      <DefaultBooks/>
-      </div>
+      </div> */}
 
     <div
       className="hero min-h-100 mt-30"
@@ -73,11 +72,12 @@ const Books = () => {
     >
       <div className="flex justify-start px-30 w-full text-center">
         <div className="max-w-md">
-          <h1 className="mb-5 text-4xl font-bold">Ready to Transform your Library?</h1>
+          <h1 className="mb-5 text-4xl font-bold">Discover the Future of Reading</h1>
           <p className="mb-5">
-           Get started from today and be prepare to experience the future of library management.
+           Embrace the digital age with our innovative reading solutions. From e-books to audiobooks, we offer a seamless reading experience that fits your lifestyle.
           </p>
-          <button className="btn rounded-xl ">Get Started</button>
+          <button className="btn hover:bg-white rounded-xl"
+          onClick={() => {window.location.href = "/about"}}>Learn More</button>
         </div>
       </div>
     </div>

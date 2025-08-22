@@ -4,8 +4,16 @@ import Img from '../images/contactimage.png'
 import Img2 from '../images/contact2.png'
 import Footer from './footer';
 import { useState, setUserData } from 'react';
+import { useRef } from 'react'
+
 
  const contact = () => {
+
+  const contentRef = useRef(null);
+  
+    const handleScroll = () => {
+      contentRef.current?.scrollIntoView({behavior: "smooth"})
+    }
 
   //sets the user data
   const [userData, setUserData] = useState({
@@ -43,7 +51,7 @@ import { useState, setUserData } from 'react';
   return (
     <>
     <Navbar/>
-        <div className='w-full h-150 bg-[#ffd6a8]'>
+        <div className='w-full h-150 bg-[#ffd6a8] mt-15'>
         <div className="hero bg-base-200 text-[#1f4444]">
     <div className="hero-content text-center mt-10 ">
     <div className="max-w-md">
@@ -52,7 +60,8 @@ import { useState, setUserData } from 'react';
         Have questions, feedback, or need support? We are here to help. 
         Fill out the form below or reach us through our email and phone number. Our team will get back to you as quickly as possible.
       </p>
-      <button className="btn btn-primary bg-[#1f4444] text-white border-none hover:text-[#1f4444] hover:bg-white">Get Started</button>
+      <button className="btn btn-primary bg-[#1f4444] text-white border-none hover:text-[#1f4444] hover:bg-white"
+      onClick={handleScroll}>Send Message</button>
     </div>
   </div>
 </div>
@@ -61,8 +70,9 @@ import { useState, setUserData } from 'react';
 </div>
 </div>
 
-    <div className='flex w-full h-150'>
-        <div className='flex flex-col ml-20 mt-30 justify-center items-center '>
+    <div className='flex w-full h-150'
+    ref={contentRef}>
+        <div className='flex flex-col ml-20 mt-30 justify-center items-center'>
         <h1 className='text-3xl font-bold'>Drop us a line</h1>
         {/* form */}
          <div className="card w-full  bg-white mt-10 w-md h-100 shrink-0 shadow-2xl mb-10">

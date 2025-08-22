@@ -1,7 +1,7 @@
 const Controller = require('../services/bookServices')
 
 const addBookController = async(req, res) =>{
-    const {title, author, isbn, quantity, available} = req.body;
+    const {title, author, isbn, quantity, available, paragraph} = req.body;
     if(!title || !author || !isbn || quantity == undefined || available == undefined){
         return res.status(400).json("Missing fields! Requires title, author, isbn")
     }
@@ -54,10 +54,26 @@ const deleteBookController = async(req, res) =>{
     }
 };
 
+// Bulk insert books
+const bulkAddBooks = async (req, res) => {
+  try {
+    const books = req.body; // expects an array of book objects
+    if (!Array.isArray(books)) { 
+      return res.status(400).json({ message: "Input should be an array of books" });
+    }
+    const result = await Controller.bulkInsertBooks(books);
+    res.status(201).json({ message: "Books added successfully", data: result });
+  } catch (err) {
+    res.status(500).json({ message: "Bulk insert failed", error: err.message });
+  }
+};
+
+
 module.exports = {
     addBookController,
     GetAllBookController,
     GetBookByIdController,
     updateBookController,
     deleteBookController,
+    bulkAddBooks,
 }

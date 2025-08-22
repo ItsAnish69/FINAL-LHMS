@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const controller = require('../controllers/userController');
-const upload = require('../controllers/uploadController');
+const upload = require('../utils/uploads');
 
 //add an User
 router.post('/', controller.addUserController);
@@ -13,10 +13,8 @@ router.get('/:id', controller.getUserController);
 router.put('/:id', controller.updateUserController);
 //delete user by id
 router.delete('/:id', controller.deleteUserController);
-
 //upload-Image
-router.post('/:id/upload-profile', upload)
-
+router.post('/:id/upload-profile', upload.single('avatar'), controller.uploadController);
 
 module.exports = router;
 

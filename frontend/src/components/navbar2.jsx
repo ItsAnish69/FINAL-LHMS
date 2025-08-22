@@ -60,11 +60,8 @@ const Navbar = () => {
                 // when clicked on cancel make the sure remain in the respective page
                 window.location.href = window.location.href;
               }
-            }}
-          >
-            Logout
-          </a>
-        </li>
+            }}>Logout</a></li>
+            <li><a href='/user-dashboard' className='hover:bg-[#F25D5D] hover:text-white px-5 py-3'>Dashboard</a></li>
       </ul>
     </div>
     </div>

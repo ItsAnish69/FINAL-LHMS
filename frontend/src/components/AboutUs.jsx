@@ -13,7 +13,7 @@ const AboutUs = () => {
     <>
         <Navbar />
         <div
-          className="hero min-h-85 text-white"
+          className="hero min-h-85 mt-15 text-white"
           style={{
             backgroundImage: `url(${backgroundImage})`,
             backgroundSize: 'cover',

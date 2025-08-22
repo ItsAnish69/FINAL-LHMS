@@ -16,7 +16,7 @@ const Banner = () => {
   return (
     <>
     {/* sec 1 */}
-    <div className="hero min-h-120 mt-10" style={{ backgroundImage: `url(${backgroundImage})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+    <div className="hero min-h-120 mt-15" style={{ backgroundImage: `url(${backgroundImage})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
   <div className="hero-content flex-col lg:flex-row-reverse w-full justify-between">
     <div className='flex gap-2 items-center'>
     <img
@@ -46,7 +46,8 @@ const Banner = () => {
 </div>
 
 {/* sec 2 */}
-<div className="hero min-h-80">
+<div className="hero min-h-80"
+ref={contentRef}>
   <div className="hero-content text-center">
     <div className="max-w-md">
       <h1 className="text-4xl font-bold">Featured Books</h1>
@@ -59,17 +60,16 @@ const Banner = () => {
 
 <div className='flex flex-col gap-y-20'>
 <DefaultBooks/>
-<DefaultBooks/>
 </div>
 
 <div className='w-full flex mt-25 justify-center'>
-  <button className="btn rounded-xl bg-[#F25D5D] hover:text-white">View More</button>
+  <button className="btn rounded-xl bg-[#F25D5D] hover:text-white"
+  onClick={() => {window.location.href='/books'}}>View More</button>
 </div>
 
 {/* content section */}
 <div
   className="hero min-h-100 mt-30"
-  ref={contentRef}
   style={{
     // import the bookcover image form the images
     backgroundImage: `url(${BookCover})`,

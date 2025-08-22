@@ -47,6 +47,16 @@
         return deleted;
     }
 
+    
+const bulkInsertBooks = async (books) => {
+  const book =  await Book.insertMany(books);
+  if(!book){
+      throw new Error("Bulk insert failed");
+  }
+  return book;
+};
+
+
     module.exports = {
         addBook,
         existingIsbn,
@@ -54,4 +64,5 @@
         getBookById,
         updateBook,
         deleteBook,
+        bulkInsertBooks
     }

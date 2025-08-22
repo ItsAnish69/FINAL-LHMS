@@ -12,6 +12,9 @@ router.get('/:id', controller.GetBookByIdController);
 router.put('/:id', controller.updateBookController);
 //delete book by id
 router.delete('/:id', controller.deleteBookController);
+//bulk post books
+router.post('/bulk', controller.bulkAddBooks);
+
 
 module.exports = router;
 

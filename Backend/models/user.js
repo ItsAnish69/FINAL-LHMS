@@ -8,5 +8,6 @@ const user = new mongoose.Schema({
     token: {type: String, select: false},
     otp: {type: String, default: null},
     otpExpires: {type: Date, default: null},
+    avatar: {type: String, default: ''}
 });
 module.exports = mongoose.model("User", user);

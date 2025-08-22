@@ -60,7 +60,6 @@ const Banner2 = () => {
 
 <div className='flex flex-col gap-y-20'>
 <DefaultBooks/>
-<DefaultBooks/>
 </div>
 
 <div className='w-full flex mt-25 justify-center'>

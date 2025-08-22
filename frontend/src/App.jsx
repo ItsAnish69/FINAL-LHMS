@@ -16,7 +16,7 @@ import  DB from "./components/DefaultBooks";
 import  BookDetails from "./components/bookDetails";
 import Cart from "./components/cart";
 import Contact from './components/contact'
-import Profile from './components/userProfile';
+import Profile from './components/userDashBoard';
 
 const App = () => {
   return (
@@ -38,9 +38,9 @@ const App = () => {
           <Route path="employee" element={<Employee/>}/>
         </Route>
         <Route path="/defaultbooks" element={<DB/>}/>
-        <Route path="/book-info" element={<BookDetails/>}/>
+        <Route path="/book-info/:id" element={<BookDetails/>}/>
         <Route path="/cart" element={<Cart/>}/>
-        <Route path="/user-profile" element={<Profile/>}/>
+        <Route path="/user-dashboard" element={<Profile/>}/>
         <Route path="/contact" element={<Contact/>}/>
       </Routes>
     </Router>

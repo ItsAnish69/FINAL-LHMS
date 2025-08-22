@@ -5,7 +5,6 @@ const borrow = new mongoose.Schema({
     bookId: { type: mongoose.Schema.Types.ObjectId, ref: "Book"},
     borrowDate: {type: Date, default: Date.now},
     returnDate: { type: Date},
-},
-    {timestamps: true });
+});
     
 module.exports = mongoose.model("Borrow", borrow);
