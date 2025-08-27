@@ -4,7 +4,8 @@ import backgroundImage from '../images/background.png'
 import Image1 from '../images/img1.jpg'
 import Image2 from '../images/img2.jpg'
 import Image3 from '../images/img3.jpg'
-import DefaultBooks from './DefaultBooks'
+import DefaultBooks from './PreviewBook'
+import PreviewBooks from './PreviewBook'
 
 const Banner2 = () => {
   const scrollIntoView = (id) => {
@@ -59,11 +60,12 @@ const Banner2 = () => {
 </div>
 
 <div className='flex flex-col gap-y-20'>
-<DefaultBooks/>
+<PreviewBooks/>
 </div>
 
 <div className='w-full flex mt-25 justify-center'>
-  <button className="btn rounded-xl bg-[#F25D5D] hover:text-white">View More</button>
+  <button className="btn rounded-xl bg-[#F25D5D] hover:text-white" 
+  onClick={() => {window.location.href = '/books'}}>View More</button>
 </div>
 
 {/* content section */}
@@ -84,7 +86,7 @@ const Banner2 = () => {
       <p className="mb-5">
        Get started from today and be prepare to experience the future of library management.
       </p>
-      <button className="btn rounded-xl">Get Started</button>
+      <button className="btn rounded-xl bg-white">Get Started</button>
     </div>
   </div>
 </div>

@@ -10,13 +10,19 @@ import ChangePassword from "./components/changePassword";
 import Preview from "./components/previewPage";
 import NotFound from "./components/notFound";
 import Books from "./components/books";
-import Dashboard from "./components/Admin/AdminDashboard";
-import Employee from "./components/Admin/employee";
-import  DB from "./components/DefaultBooks";
 import  BookDetails from "./components/bookDetails";
 import Cart from "./components/cart";
 import Contact from './components/contact'
 import Profile from './components/userDashBoard';
+
+
+import AdminDashboard from "./components/Admin/AdminDashboard";
+import Dashboard from "./components/Admin/pages/dashboard";
+import UserManagement from "./components/Admin/pages/userManagment";  
+import BookManagement from "./components/Admin/pages/bookManagment";
+import BorrowReturn from "./components/Admin/pages/borrowReturn";
+import Settings from "./components/Admin/pages/setting";
+
 
 const App = () => {
   return (
@@ -34,14 +40,18 @@ const App = () => {
         <Route path="/change-password" element={<ChangePassword/>}/>
         <Route path="/" element={<Preview/>}/>
         <Route path="/*" element={<NotFound/>}/>
-        <Route path="/dashboard" element={<Dashboard/>}>
-          <Route path="employee" element={<Employee/>}/>
-        </Route>
-        <Route path="/defaultbooks" element={<DB/>}/>
         <Route path="/book-info/:id" element={<BookDetails/>}/>
         <Route path="/cart" element={<Cart/>}/>
         <Route path="/user-dashboard" element={<Profile/>}/>
         <Route path="/contact" element={<Contact/>}/>
+
+        <Route path="/admin-dashboard" element={<AdminDashboard/>}>
+          <Route index element={<Dashboard />} />
+          <Route path="users" element={<UserManagement />} />
+          <Route path="books" element={<BookManagement />} />
+          <Route path="Borrow-return" element={<BorrowReturn />} />
+          <Route path="settings" element={<Settings />} />
+        </Route>
       </Routes>
     </Router>
     </>

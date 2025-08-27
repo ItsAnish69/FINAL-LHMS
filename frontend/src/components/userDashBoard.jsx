@@ -1,13 +1,47 @@
-import { BookOpen, Star } from "lucide-react";
+import { BookOpen, Star, User } from "lucide-react";
+import { useEffect, useState, useRef } from "react";
+import axios from "axios";
 
-const Dashboard = () => {
-  
+const UserDashboard = () => {
+  const userId = localStorage.getItem('userId');
+  const [user, setUser] = useState(null);
+  const userName =  localStorage.getItem('userName') || '';
+  const userEmail = localStorage.getItem('userEmail') || '';
+  const [loading, setLoading] = useState(true);
+  const fileInputRef = useRef();
+
+
+  useEffect(() => {
+    if (!userId) return;
+    axios.post(`http://localhost:5000/api/user/${userId}`)
+      .then(res => {
+        setUser(res.data);
+        setLoading(false);
+      })
+      .catch(() => setLoading(false));
+  }, [userId]);
+
+  const handleImageChange = (e) => {
+    if (e.target.files && e.target.files[0]) {
+      const formData = new FormData();
+      formData.append('avatar', e.target.files[0]);
+      console.log('user id:', userId);
+      axios.post(`http://localhost:5000/api/user/${userId}/upload-profile`, formData)
+        .then(res => {
+          setUser(res.data);
+          alert('Profile picture updated!');
+        })
+        .catch(() => alert('Failed to upload image.'));
+    }
+  };
+
   return (
+    
     <div className="min-h-screen bg-gray-50 p-6 space-y-6">
       {/* Welcome Message */}
       <header className="bg-[#f25d5d] p-6 rounded-xl flex justify-between items-center shadow">
         <div>
-        <h1 className="text-2xl font-bold text-white">Welcome Back, Alex Johnson 👋</h1>
+        <h1 className="text-2xl font-bold text-white">Welcome Back, {userName} 👋</h1>
         <p className="text-white">Here’s your library dashboard overview.</p>
         </div>
         <button className="bg-white text-[#f25d5d] rounded-lg font-bold px-4 py-2 hover:scale-105"
@@ -19,22 +53,33 @@ const Dashboard = () => {
         {/* Profile Section */}
         <div className="bg-white p-6 rounded-xl shadow-lg flex flex-col items-center">
           <img
-            src="https://via.placeholder.com/150"
-            alt="User Avatar"
+            src={user?.avatar ? `http://localhost:5000/${user.avatar}` : 'https://via.placeholder.com/150'}
+            alt="Profile"
             className="w-32 h-32 rounded-full border-4 border-[#f25d5d] mb-4"
             />
-          <button className="mb-6 px-4 py-2 bg-[#f25d5d] text-white rounded-lg hover:bg-[#f25d5d]">
+          <input
+            type="file"
+            accept="image/*"
+            style={{display:"none"}}
+            ref={fileInputRef}
+            onChange={handleImageChange}
+          />
+          <button
+            className="mb-6 px-4 py-2 bg-[#f25d5d] text-white rounded-lg hover:bg-[#f25d5d] hover:scale-103"
+            onClick={() => fileInputRef.current && fileInputRef.current.click()
+            }
+          >
             Change Profile Picture
           </button>
           
           <div className="w-full max-w-lg space-y-4">
             <div>
               <label className="text-sm text-gray-500">Name</label>
-              <p className="text-lg font-medium text-gray-800 border-b">Alex Johnson</p>
+              <p className="text-lg font-medium text-gray-800 border-b">{userName}</p>
             </div>
             <div>
               <label className="text-sm text-gray-500">Email</label>
-              <p className="text-lg font-medium text-gray-800 border-b">alex.johnson@email.com</p>
+              <p className="text-lg font-medium text-gray-800 border-b">{userEmail}</p>
             </div>
             <div>
               <label className="text-sm text-gray-500">Date of Birth</label>
@@ -125,4 +170,4 @@ const Dashboard = () => {
       </div>
   );
 }
-export default Dashboard;
+export default UserDashboard;

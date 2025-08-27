@@ -1,5 +1,3 @@
-import React from 'react'
-import Image1 from '../images/img1.jpg'
 import  {useEffect , useState} from 'react';
 import { useNavigate } from 'react-router-dom'; 
 
@@ -20,7 +18,7 @@ const DefaultBooks = () => {
         <div key={book._id} className="card bg-base-100 shadow-lg rounded-xl w-55 mx-auto">
           <figure className="px-3 pt-3">
             <img
-              src={book.cover || 'https://picsum.photos/200/300'}
+              src={book.cover}
               alt={book.title}
               className="rounded-xl w-full h-72 object-cover"
             />
@@ -30,7 +28,7 @@ const DefaultBooks = () => {
             <p className="text-sm">By {book.author}</p>
             <div className="card-actions">
               <button 
-                className="btn mt-3 rounded-xl hover:bg-gradient-to-r from-pink-500 to-orange-500 hover:text-white text-sm"
+                className="btn w-40 mt-3 rounded-xl hover:bg-gradient-to-r from-pink-500 to-orange-500 hover:text-white text-sm"
                 onClick={() => navigate(`/book-info/${book._id}`)}>
                 Get Now
               </button>

@@ -1,7 +1,6 @@
 import React from 'react'
 import Navbar from './navbar2';
 import Img from '../images/contactimage.png'
-import Img2 from '../images/contact2.png'
 import Footer from './footer';
 import { useState, setUserData } from 'react';
 import { useRef } from 'react'
@@ -84,6 +83,7 @@ import { useRef } from 'react'
           className="input border border-gray-500 rounded-md w-full" 
           placeholder="username"
           name="username"
+          required
           onChange={handleChange}
           />
           <label className="label">Email</label>
@@ -92,6 +92,7 @@ import { useRef } from 'react'
           className="input border border-gray-500 rounded-md w-full" 
           placeholder="email" 
           name="email"
+          required
           onChange={handleChange}
           />
 
@@ -102,17 +103,29 @@ import { useRef } from 'react'
           placeholder="Add a comment..."
           name='message'
           onChange={handleChange}
+          required
         ></textarea>
     
           <button className="btn mt-4 bg-[#1f4444] text-white hover:bg-white hover:text-[#1f4444]"
-          onClick={handleSubmit}>Submit</button>
+          onClick={handleSubmit}
+          >Submit</button>
         </fieldset>
       </div>
     </div>
     </div>
 
     <div className='w-full h-130 flex justify-center items-center mt-25'>
-        <img src={Img2} className='h-90 ml-25 rounded-xl'/>
+      <div className="rounded-2xl h-80 w-150 overflow-hidden shadow-lg">
+              <iframe
+                title="BookHub Itahari Location"
+                src="https://www.google.com/maps?q=26.663389,87.240806&z=15&output=embed"
+                width="100%"
+                height="300"
+                allowFullScreen=""
+                loading="lazy"
+                className="border-0"
+              ></iframe>
+  </div>
     </div>
     </div>
         <Footer/>

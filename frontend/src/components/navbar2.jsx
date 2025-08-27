@@ -2,10 +2,18 @@
 const Navbar = () => {
   const navItems = (
       <>
+      <div className="flex items-center gap-x-3 relative left-10">
       <li><a href='/home' className='hover:font-bold hover:text-[#F25d5d]'>Home</a></li>
       <li><a href='/books' className='hover:font-bold hover:text-[#F25d5d]'>Book</a></li>
       <li><a href='/about' className='hover:font-bold hover:text-[#F25d5d]'>About Us</a></li>
         <li><a href='/contact' className='hover:font-bold hover:text-[#F25d5d]'>Contact</a></li>
+        <li><div className="avatar">
+            <div className="ring-primary w-10 rounded-full ring-2 ring-offset-2">
+            <img src="https://img.daisyui.com/images/profile/demo/spiderperson@192.webp" 
+            onClick={() => { window.location.href = '/user-dashboard'; }} />
+            </div>
+            </div></li>
+        </div>
         </>
     )
   return (
@@ -61,7 +69,6 @@ const Navbar = () => {
                 window.location.href = window.location.href;
               }
             }}>Logout</a></li>
-            <li><a href='/user-dashboard' className='hover:bg-[#F25D5D] hover:text-white px-5 py-3'>Dashboard</a></li>
       </ul>
     </div>
     </div>

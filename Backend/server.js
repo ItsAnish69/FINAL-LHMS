@@ -1,5 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose")
+const path = require('path');
 require('dotenv').config();
 const cors = require("cors");
 require("jsonwebtoken")
@@ -12,6 +13,9 @@ app.use(cors({
     origin: process.env.ORIGIN_CORS, // Adjust this to your frontend URL
     credentials: true,
 }));
+
+
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 //connect to the mongoDB
 mongoose.connect("mongodb://localhost:27017/test")

@@ -72,20 +72,21 @@ const deleteUserController = async(req, res) =>{
 
 const uploadController = async (req, res) => {
   try {
-    const employeeId = req.params.id;
-    const employee = await Employee.findById(employeeId);
+    const UserId = req.params.id;
+    const file = req.file;
 
-    if (!employee) {
-      return res.status(404).json({ message: "Employee not found" });
+    if (!file) {
+      return res.status(404).json({ message: "No file uploaded" });
     }
 
-    employee.profileImage = req.file.filename; // just store filename
-    await employee.save();
+    const avatarPath = file.path.replace(/\\\\/g, '/').replace(/\\/g, '/');
+    const updatedUser = await User.findByIdAndUpdate(UserId, { profileImage: avatarPath }, { new: true });
 
-    res.status(200).json({
-      message: "Image uploaded successfully",
-      imageUrl: `/uploads/${req.file.filename}`,
-    });
+    if (!updatedUser) {
+      return res.status(404).json("User not found");
+    }
+
+    res.status(200).json(updatedUser);
   } catch (err) {
     res.status(500).json({ message: err.message });
   }

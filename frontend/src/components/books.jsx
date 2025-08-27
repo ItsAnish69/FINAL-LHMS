@@ -21,14 +21,13 @@ const Books = () => {
       }}
     >
       <div className="flex justify-start px-30 w-full text-left">
-        <div className="max-w-md">
-          <h1 className="mb-5 text-4xl font-bold">Read More, Learn More!</h1>
-          <p className="mb-5">
+        <div className="max-w-md mb-50">
+          <h1 className="mb-5 text-4xl font-bold text-white">Read More, Learn More!</h1>
+          <p className="mb-5 text-white">
           Unlock new knowledge with every page you turn. Whether it's fiction, history, 
           or self-help, reading expands your mind, sharpens your thinking, and fuels lifelong 
           learning.
           </p>
-          <button className="btn rounded-xl bg-white mb-35">Learn more</button>
         </div>
       </div>
     </div>

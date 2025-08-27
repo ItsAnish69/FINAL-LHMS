@@ -36,7 +36,7 @@ const registerUser = async (req, res) => {
       email,
       "Welcome to the Library Management System",
       `Hello ${name},\n\nThank you for registering as a ${role} in our Library Management System.
-      \n\nHere is your password: ${password} \nFor further login to our Library Management System.\nPlease Kindly use the provided password\n\nBest regards,\nLibrary Team`
+      \nHere is your password: ${password} \nUsing the password you can log in to our Library Management System.\nPlease Kindly use the provided password\n\nBest regards,\nLibrary Team`
         );
 
     res.status(200).json({
