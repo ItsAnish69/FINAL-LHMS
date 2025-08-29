@@ -70,34 +70,10 @@ const deleteUserController = async(req, res) =>{
 };
 
 
-const uploadController = async (req, res) => {
-  try {
-    const UserId = req.params.id;
-    const file = req.file;
-
-    if (!file) {
-      return res.status(404).json({ message: "No file uploaded" });
-    }
-
-    const avatarPath = file.path.replace(/\\\\/g, '/').replace(/\\/g, '/');
-    const updatedUser = await User.findByIdAndUpdate(UserId, { profileImage: avatarPath }, { new: true });
-
-    if (!updatedUser) {
-      return res.status(404).json("User not found");
-    }
-
-    res.status(200).json(updatedUser);
-  } catch (err) {
-    res.status(500).json({ message: err.message });
-  }
-};
-
-
 module.exports = {
     addUserController,
     getAllUserController,
     getUserController,
     updateUserController,
     deleteUserController,
-    uploadController,
 }

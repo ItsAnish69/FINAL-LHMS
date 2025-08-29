@@ -2,24 +2,47 @@ import Footer from "./footer";
 import Navbar from "./navbar2";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
-
 
 const BookDetail = () => {
   const { id } = useParams();
   const [book, setBook] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  const navigate = useNavigate();
+  const [borrows, setBorrows] = useState([]);
+  const [showBorrowModal, setShowBorrowModal] = useState(false);
+
+  const userId = localStorage.getItem('userId');
+  const borrowDate = Date.now();
+  const returnDate = new Date(borrowDate + 7 * 24 * 60 * 60 * 1000).toISOString();
 
   useEffect(() => {
     fetch(`http://localhost:5000/api/book/${id}`)
-      .then(res => res.json())
-      .then(data => {
-        setBook(data);
-        setLoading(false); 
-      });
+    .then(res => res.json())
+    .then(data => {
+      setBook(data);
+      setLoading(false); 
+    });
   }, [id]);
+
+    const BorrowModal = () =>{
+      setShowBorrowModal(true);
+    }
+
+    const handleBorrow = () => {
+    fetch(`http://localhost:5000/api/borrow`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ userId, bookId: id, borrowDate, returnDate})
+    })
+      .then((res) => res.json())
+      .then((newBorrow) => {
+        setBorrows([...borrows, newBorrow]);
+        localStorage.setItem('bookTitle', book.title);
+        alert("Book borrowed successfully");
+        window.location.reload();
+        setShowAddModal(false);
+      });
+  };
 
   return (
     <>
@@ -56,10 +79,11 @@ const BookDetail = () => {
 
             {/* Buttons */}
             <div className="mt-8 flex gap-4">
-              <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl shadow-md transition">
+              <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl shadow-md transition"
+               onClick={BorrowModal}>
                 Borrow Now
               </button>
-              <button className="bg-gray-200 hover:bg-gray-300 text-gray-800 px-6 py-3 rounded-xl shadow-md transition">
+              <button className="bg--200 hover:bg-gray-300 text-gray-800 px-6 py-3 rounded-xl shadow-md transition">
                 Add to Favourite
               </button>
             </div>
@@ -68,6 +92,7 @@ const BookDetail = () => {
       ) : (
         <div className="p-10 text-center text-xl">Book not found</div>
       )}
+
       {/* comment section */}
       <div className="p-6 max-w-6xl mt-10 ml-5 mx-auto">
         <h2 className="text-2xl font-bold mb-4">Comments</h2>
@@ -90,8 +115,36 @@ const BookDetail = () => {
         </div>
       </div>
       <Footer/>
-    </>
-  );
-}
 
-export default BookDetail;
+      {/* popup modal for borrow */}
+      {showBorrowModal && (
+        <div className="absolute inset-0 flex items-center justify-center z-50">
+          <div className="bg-white p-6 rounded-md shadow-lg w-96 border">
+            <h3 className="text-lg font-bold text-center mb-4">
+              Confirm Borrow
+            </h3>
+            <p className="text-center mb-4">
+              Are you sure you want to borrow this book?
+            </p>
+            <div className="flex justify-center gap-4">
+              <button
+                onClick={handleBorrow}
+                className="bg-blue-500 text-white px-4 py-2 rounded-md"
+              >
+                Yes
+              </button>
+              <button
+                onClick={() => setShowBorrowModal(false)}
+                className="bg-gray-300 px-4 py-2 rounded-md"
+              >
+                No
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+    </>
+  )};
+
+  export default BookDetail;

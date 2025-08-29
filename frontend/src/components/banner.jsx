@@ -67,6 +67,52 @@ ref={contentRef}>
   onClick={() => {window.location.href='/books'}}>View More</button>
 </div>
 
+{/* feature section */}
+<div className="mt-20 flex flex-col justify-center items-center px-4">
+  <h2 className="text-3xl font-bold text-center">Why Join Us?</h2>
+  <p className="text-md mt-5 max-w-2xl text-center">
+    Join our community of book lovers and gain access to a world of knowledge
+    and imagination. To get started, simply sign up and explore our vast
+    collection of books.
+  </p>
+</div>
+
+{/* Cards Section */}
+<div className="w-full flex flex-col md:flex-row justify-around mt-15 items-center md:items-stretch gap-6 mt-10 px-4">
+  {/* card one */}
+  <div className="card bg-red-400 rounded-xl text-white w-full md:w-80 shadow-lg hover:scale-105 hover:translate-y-[-10px] transition-all duration-300">
+    <div className="card-body">
+      <h2 className="card-title font-bold text-xl">Always Available</h2>
+      <p>
+        Our library hub offers access to books from vast genres and makes it
+        easier to help you find the right book faster.
+      </p>
+    </div>
+  </div>
+
+  {/* card two */}
+  <div className="card bg-red-400 rounded-xl text-white w-full md:w-80 shadow-lg hover:scale-105 hover:translate-y-[-10px] transition-all duration-300">
+    <div className="card-body">
+      <h2 className="card-title font-bold text-xl">Time Management</h2>
+      <p>
+        Keep track of due dates, borrowing dates, and availability status,
+        ensuring you never miss a deadline.
+      </p>
+    </div>
+  </div>
+
+  {/* card three */}
+  <div className="card bg-red-400 rounded-xl text-white w-full md:w-80 shadow-lg hover:scale-105 hover:translate-y-[-10px] transition-all duration-300">
+    <div className="card-body">
+      <h2 className="card-title font-bold text-xl">Quick Search</h2>
+      <p>
+        With our digital search system, you can quickly find books by your
+        favorite author, genre, or category without difficulty.
+      </p>
+    </div>
+  </div>
+</div>
+
 {/* content section */}
 <div
   className="hero min-h-100 mt-30"

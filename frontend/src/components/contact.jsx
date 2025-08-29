@@ -3,6 +3,7 @@ import Navbar from './navbar2';
 import Img from '../images/contactimage.png'
 import Footer from './footer';
 import { useState, setUserData } from 'react';
+import backgroundPng from '../images/background.png'
 import { useRef } from 'react'
 
 
@@ -50,8 +51,13 @@ import { useRef } from 'react'
   return (
     <>
     <Navbar/>
-        <div className='w-full h-150 bg-[#ffd6a8] mt-15'>
-        <div className="hero bg-base-200 text-[#1f4444]">
+        <div className='w-full h-150 mt-15'
+        style={{
+          backgroundImage: `url(${backgroundPng})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}>
+        <div className="hero bg-base-200 text-white">
     <div className="hero-content text-center mt-10 ">
     <div className="max-w-md">
       <h1 className="text-5xl font-bold">Get In Touch With Us</h1>

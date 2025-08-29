@@ -18,7 +18,7 @@ app.use(cors({
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 //connect to the mongoDB
-mongoose.connect("mongodb://localhost:27017/test")
+mongoose.connect("mongodb+srv://AnishDB:Anish123@cluster0.xkg4wyq.mongodb.net/")
 .then(() => {console.log("Connected to the mongoDB")})
 .catch((err) => {console.log(err);});
 

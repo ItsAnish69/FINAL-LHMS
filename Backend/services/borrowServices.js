@@ -13,8 +13,8 @@ const addBorrowDetail = async(borrowData) =>{
     }
 }
 
-const existingBorrowId = async (id) => {
-        const checkBorrowId = await Borrow.findById(id);
+const existingBorrowId = async (userId) => {
+        const checkBorrowId = await Borrow.findById(userId);
         if(checkBorrowId){
             return true;
         } return false;
@@ -22,26 +22,26 @@ const existingBorrowId = async (id) => {
 
     //get all Borrow
     const getAllBorrow = async() =>{
-        return await Borrow.find();
+        return await Borrow.find().populate('bookId');
     }
 
     //get Borrow By Id
-    const getBorrowById = async(id) =>{
-        return await Borrow.findById(id);
+    const getBorrowById = async(userId) =>{
+        return await Borrow.findById(userId);
     }
 
     //Update Borrow Details
-    const updateBorrowById = async(id, updateBorrowData) => {
-        const update = await Book.findByIdAndUpdate(id, updateBorrowData, {new:true});
-        if(!update){
+    const updateBorrowById = async(userId, updateBorrowData) => {
+        const update = await Borrow.findByIdAndUpdate(userId, updateBorrowData, { new: true });
+        if (!update) {
             return "Failed to update"
         }
         return update; 
     }
 
     //delete Borrow Records
-    const deleteBorrowById = async(id)  =>{
-        const deleted = await Borrow.findByIdAndDelete(id);
+    const deleteBorrowById = async(userId)  =>{
+        const deleted = await Borrow.findByIdAndDelete(userId);
         if(!deleted){
             return "Failed to delete the book records"
         } 

@@ -11,7 +11,6 @@ import Preview from "./components/previewPage";
 import NotFound from "./components/notFound";
 import Books from "./components/books";
 import  BookDetails from "./components/bookDetails";
-import Cart from "./components/cart";
 import Contact from './components/contact'
 import Profile from './components/userDashBoard';
 
@@ -41,7 +40,6 @@ const App = () => {
         <Route path="/" element={<Preview/>}/>
         <Route path="/*" element={<NotFound/>}/>
         <Route path="/book-info/:id" element={<BookDetails/>}/>
-        <Route path="/cart" element={<Cart/>}/>
         <Route path="/user-dashboard" element={<Profile/>}/>
         <Route path="/contact" element={<Contact/>}/>
 

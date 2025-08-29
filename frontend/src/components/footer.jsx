@@ -1,10 +1,12 @@
 import React from 'react';
+import backgroundPng from '../images/background.png'
 
 const Footer = () => {
     return (
     <>
     
-    <footer className="footer footer-horizontal footer-center text-base-content rounded p-10 mt-10">
+    <footer className="footer footer-horizontal text-white footer-center text-base-content rounded p-10 mt-20"
+    style={{ backgroundImage: `url(${backgroundPng})`, backgroundSize: 'cover' }}>
   <nav className="grid grid-flow-col gap-4">
     <a className="link link-hover" href='/about'>About us</a>
     <a className="link link-hover" href='/contact'>Contact</a>

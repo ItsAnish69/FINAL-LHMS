@@ -4,7 +4,6 @@ import backgroundImage from '../images/background.png'
 import Image1 from '../images/img1.jpg'
 import Image2 from '../images/img2.jpg'
 import Image3 from '../images/img3.jpg'
-import DefaultBooks from './PreviewBook'
 import PreviewBooks from './PreviewBook'
 
 const Banner2 = () => {

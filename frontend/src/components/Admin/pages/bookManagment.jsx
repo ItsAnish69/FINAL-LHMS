@@ -26,6 +26,8 @@ const BookManagement = () => {
       });
   }, []);
 
+  localStorage.setItem('bookTitle', JSON.stringify(books.map(book => book.title)));
+
   // --------- DELETE ---------
   const handleDelete = (book) => {
     setSelectedBook(book);

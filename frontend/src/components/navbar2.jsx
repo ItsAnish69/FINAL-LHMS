@@ -1,3 +1,4 @@
+import defaultProfile from "../images/defaultAvatar.jpg";
 
 const Navbar = () => {
   const navItems = (
@@ -9,7 +10,7 @@ const Navbar = () => {
         <li><a href='/contact' className='hover:font-bold hover:text-[#F25d5d]'>Contact</a></li>
         <li><div className="avatar">
             <div className="ring-primary w-10 rounded-full ring-2 ring-offset-2">
-            <img src="https://img.daisyui.com/images/profile/demo/spiderperson@192.webp" 
+            <img src={defaultProfile} 
             onClick={() => { window.location.href = '/user-dashboard'; }} />
             </div>
             </div></li>
@@ -53,7 +54,6 @@ const Navbar = () => {
       <ul
         tabIndex={0}
         className="menu menu-sm dropdown-content p-2 bg-white outline rounded-box z-1 mt-3 w-45 right-1 px-3 py-2">
-        <li><a href='/cart' className='hover:bg-[#F25D5D] hover:text-white px-5 py-3'>Cart</a></li>
         <li><a href='/forgot-password' className='hover:bg-[#F25D5D] hover:text-white px-5 py-3'>Change Password</a></li>
         <li>
           <a

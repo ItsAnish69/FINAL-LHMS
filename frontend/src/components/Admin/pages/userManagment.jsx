@@ -15,8 +15,6 @@ const UserManagement = () => {
   const [selectedUser, setSelectedUser] = useState(null);
   const [formData, setFormData] = useState({ name: "", email: "", password: "", role:"borrower" });
 
-  const navigate = useNavigate();
-
   useEffect(() => {
     fetch(`http://localhost:5000/api/user/`)
       .then((res) => res.json())

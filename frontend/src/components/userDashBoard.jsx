@@ -1,4 +1,5 @@
 import { BookOpen, Star, User } from "lucide-react";
+import defaultProfile from "../images/defaultAvatar.jpg";
 import { useEffect, useState, useRef } from "react";
 import axios from "axios";
 
@@ -8,8 +9,16 @@ const UserDashboard = () => {
   const userName =  localStorage.getItem('userName') || '';
   const userEmail = localStorage.getItem('userEmail') || '';
   const [loading, setLoading] = useState(true);
+  const [activity, setActivity] = useState([]);
   const fileInputRef = useRef();
 
+
+useEffect(() => {
+  if (!userId) return;
+  axios.get(`http://localhost:5000/api/borrow/${userId}`)
+    .then(res => setActivity(res.data))
+    .catch(() => setActivity([]));
+}, [userId]);
 
   useEffect(() => {
     if (!userId) return;
@@ -53,7 +62,7 @@ const UserDashboard = () => {
         {/* Profile Section */}
         <div className="bg-white p-6 rounded-xl shadow-lg flex flex-col items-center">
           <img
-            src={user?.avatar ? `http://localhost:5000/${user.avatar}` : 'https://via.placeholder.com/150'}
+            src={defaultProfile}
             alt="Profile"
             className="w-32 h-32 rounded-full border-4 border-[#f25d5d] mb-4"
             />
@@ -64,13 +73,6 @@ const UserDashboard = () => {
             ref={fileInputRef}
             onChange={handleImageChange}
           />
-          <button
-            className="mb-6 px-4 py-2 bg-[#f25d5d] text-white rounded-lg hover:bg-[#f25d5d] hover:scale-103"
-            onClick={() => fileInputRef.current && fileInputRef.current.click()
-            }
-          >
-            Change Profile Picture
-          </button>
           
           <div className="w-full max-w-lg space-y-4">
             <div>
@@ -82,10 +84,10 @@ const UserDashboard = () => {
               <p className="text-lg font-medium text-gray-800 border-b">{userEmail}</p>
             </div>
             <div>
-              <label className="text-sm text-gray-500">Date of Birth</label>
+              <label className="text-sm text-gray-500">Library</label>
               <input
-                type="date"
-                defaultValue="1995-05-20"
+                type="text"
+                value="BookHub Library"
                 className="w-full mt-1 border rounded p-2"
               />
             </div>
@@ -93,44 +95,17 @@ const UserDashboard = () => {
         </div>
 
         {/* Stats Section */}
-        <div className="flex flex-col gap-y-10 bg-white p-5 rounded-xl shadow-lg">
-        <div className="flex gap-8 w-full h-50 justify-evenly items-center">
-          <div className="bg-white p-8 h-40 w-70 rounded-xl shadow text-center">
+        <div className="flex gap-y-10 p-5 bg-white rounded-xl shadow-lg">
+        <div className="flex flex-col gap-8 w-full h-50 justify-evenly items-center">
+          <div className="bg-white p-8 h-40 w-full rounded-xl shadow text-center">
             <BookOpen className="w-10 h-10 text-[#f25d5d] mx-auto mb-2" />
             <h3 className="text-xl font-bold text-gray-800">3</h3>
             <p className="text-gray-500">Borrowed Books</p>
           </div>
-          <div className="bg-white p-8 h-40 w-70 rounded-xl shadow text-center">
+          <div className="bg-white p-8 h-40 w-full rounded-xl shadow text-center">
             <Star className="w-10 h-10 text-yellow-500 mx-auto mb-2" />
             <h3 className="text-xl font-bold text-gray-800">2</h3>
             <p className="text-gray-500">Favourite Books</p>
-          </div>
-        </div>
-        {/* put the favourite books here and make it below the stats section with flex-col */}
-        <div className="bg-white p-6 rounded-xl shadow ">
-          <h2 className="text-xl font-bold mb-4 text-gray-800 flex items-center space-x-2">
-            <Star className="w-5 h-5 text-yellow-500" />
-            <span>Favourite Books</span>
-          </h2>
-          <div className="space-y-4">
-            <div className="flex justify-between items-center border p-3 rounded-lg hover:bg-gray-50">
-              <div>
-                <p className="font-medium text-gray-800">The Alchemist</p>
-                <p className="text-sm text-gray-500">Paulo Coelho</p>
-              </div>
-              <button className="px-3 py-1 bg-gray-300 text-gray-800 rounded hover:bg-gray-400">
-                Unfavourite
-              </button>
-            </div>
-            <div className="flex justify-between items-center border p-3 rounded-lg hover:bg-gray-50">
-              <div>
-                <p className="font-medium text-gray-800">Harry Potter</p>
-                <p className="text-sm text-gray-500">J.K. Rowling</p>
-              </div>
-              <button className="px-3 py-1 bg-gray-300 text-gray-800 rounded hover:bg-gray-400">
-                Unfavourite
-              </button>
-            </div>
           </div>
         </div>
         </div>

@@ -8,7 +8,7 @@ const addBorrowController = async(req, res) =>{
         return res.status(400).json("Missing fields!");
     }
     //checks for duplicate record Id 
-    const existingBorrowId = await BorrowController.existingBorrowId(id);
+    const existingBorrowId = await BorrowController.existingBorrowId(userId);
         if(existingBorrowId){
             res.status(400).json({Message:"Duplicate Id Detected!"})
         }

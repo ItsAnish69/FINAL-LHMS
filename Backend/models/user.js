@@ -7,7 +7,6 @@ const user = new mongoose.Schema({
     role: {type: String, default: "borrower", enum:["borrower", "librarian"]},
     token: {type: String, select: false},
     otp: {type: String, default: null},
-    otpExpires: {type: Date, default: null},
-    avatar: {type: String, default: ''}
+    otpExpires: {type: Date, default: null}
 });
 module.exports = mongoose.model("User", user);
