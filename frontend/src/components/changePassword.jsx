@@ -30,7 +30,7 @@ const ChangePassword = () => {
       }
 
       try{
-      const response= await axios.put('http://localhost:5000/api/auth/change-password', userData);
+      const response= await axios.put('https://lhms-website.onrender.com/api/auth/change-password', userData);
       alert("Password changed Successfully")
       window.location.href = '/Login'
 

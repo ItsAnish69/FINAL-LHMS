@@ -24,7 +24,7 @@ const ForgotPassword = () => {
       }
 
       try{
-      const response= await axios.post('http://localhost:5000/api/auth/forgot-password', userData);
+      const response= await axios.post('https://lhms-website.onrender.com/api/auth/forgot-password', userData);
       alert("Opt sent successfully")
       window.location.href = '/verify-otp'
 

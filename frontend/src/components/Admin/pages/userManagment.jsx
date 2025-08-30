@@ -16,7 +16,7 @@ const UserManagement = () => {
   const [formData, setFormData] = useState({ name: "", email: "", password: "", role:"" });
 
   useEffect(() => {
-    fetch(`http://localhost:5000/api/user/`)
+    fetch(`https://lhms-website.onrender.com/api/user/`)
       .then((res) => res.json())
       .then((data) => {
         setUsers(data);
@@ -33,7 +33,7 @@ const UserManagement = () => {
   const confirmDelete = () => {
     if (!selectedUser) return;
 
-    fetch(`http://localhost:5000/api/user/${selectedUser._id}`, {
+    fetch(`https://lhms-website.onrender.com/api/user/${selectedUser._id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
@@ -55,7 +55,7 @@ const UserManagement = () => {
   const confirmEdit = () => {
     if (!selectedUser) return;
 
-    fetch(`http://localhost:5000/api/user/${selectedUser._id}`, {
+    fetch(`https://lhms-website.onrender.com/api/user/${selectedUser._id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(formData), 
@@ -78,7 +78,7 @@ const UserManagement = () => {
   };
 
   const confirmAdd = () => {
-    fetch(`http://localhost:5000/api/auth/register`, {
+    fetch(`https://lhms-website.onrender.com/api/auth/register`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(formData),

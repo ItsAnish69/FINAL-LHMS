@@ -15,7 +15,7 @@ const Dashboard = () => {
 
   //user data fetch
   useEffect(() =>{
-    fetch('http://localhost:5000/api/user')
+    fetch('https://lhms-website.onrender.com/api/user')
     .then((res)=> res.json())
     .then((data) => {
       setUsers(data)
@@ -25,7 +25,7 @@ const Dashboard = () => {
 
   //book data fetch
   useEffect(() =>{
-    fetch('http://localhost:5000/api/book')
+    fetch('https://lhms-website.onrender.com/api/book')
     .then((res)=> res.json())
     .then((data) => {
       setBooks(data)
@@ -35,7 +35,7 @@ const Dashboard = () => {
 
   //books borrowed data fetch
   useEffect(() =>{
-    fetch('http://localhost:5000/api/borrow/')
+    fetch('https://lhms-website.onrender.com/api/borrow/')
     .then((res)=> res.json())
     .then((data) => {
       setBorrowers(data)

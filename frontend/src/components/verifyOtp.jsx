@@ -23,7 +23,7 @@ const ForgotPassword = () => {
         return alert("Please, fill the OTP field!")
       }
       try{
-      const response = await axios.post('http://localhost:5000/api/auth/verify-otp', userData);
+      const response = await axios.post('https://lhms-website.onrender.com/api/auth/verify-otp', userData);
       localStorage.setItem('otp', userData.otp);
       alert("OTP verification Successfull")
       window.location.href = '/change-password'

@@ -11,13 +11,13 @@ const BorrowReturn = () => {
 
 
   useEffect(() => {
-  fetch('http://localhost:5000/api/book')
+  fetch('https://lhms-website.onrender.com/api/book')
     .then(res => res.json())
     .then(data => setBooks(data));
 }, []);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/api/borrow/`)
+    fetch(`https://lhms-website.onrender.com/api/borrow/`)
       .then((res) => res.json())
       .then((data) => {
         setBorrows(data);

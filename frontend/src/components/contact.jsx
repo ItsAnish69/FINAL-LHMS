@@ -40,7 +40,7 @@ import { useRef } from 'react'
       return alert("Please, Fill all the input fields!")
      }
      try{
-      const reponse = await axios.post('http://localhost:5000/api/auth/contact', userData);
+      const response = await axios.post('https://lhms-website.onrender.com/api/auth/contact', userData);
       alert("Thank you for messaging! We'll contact you soon.")
      } catch(err){
       alert("Message can be send through the registered account only!");

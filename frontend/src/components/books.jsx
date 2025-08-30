@@ -48,18 +48,6 @@ const Books = () => {
      <DefaultBooks/>
      </div>
 
-     {/* <div className='mt-25'>
-      <h1 className='text-2xl ml-20 underline font-bold mb-10'>Mystery Collection</h1>
-     <DefaultBooks/>
-     </div>
-
-     <div className='mt-25 flex flex-col'>
-     <h1 className='text-2xl ml-20 underline font-bold mb-10'>Historic & Fiction Collection</h1>
-     <DefaultBooks/>
-      <div className='my-10'></div>
-     <DefaultBooks/>
-      </div> */}
-
     <div
       className="hero min-h-100 mt-30"
       style={{

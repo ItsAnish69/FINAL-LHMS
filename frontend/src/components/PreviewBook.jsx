@@ -6,7 +6,7 @@ const PreviewBooks = () => {
   const navigate = useNavigate();
 
   useEffect(()=> {
-    fetch('http://localhost:5000/api/book')
+    fetch('https://lhms-website.onrender.com/api/book')
     .then(res => res.json())
     .then(data => setBooks(data));
   },[]);

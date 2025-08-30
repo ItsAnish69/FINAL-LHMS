@@ -16,7 +16,7 @@ const BookDetail = () => {
   const returnDate = new Date(borrowDate + 7 * 24 * 60 * 60 * 1000).toISOString();
 
   useEffect(() => {
-    fetch(`http://localhost:5000/api/book/${id}`)
+    fetch(`https://lhms-website.onrender.com/api/book/${id}`)
     .then(res => res.json())
     .then(data => {
       setBook(data);
@@ -31,7 +31,7 @@ const BookDetail = () => {
     const handleBorrow = async () => {
       try {
         // Borrow the book
-        const borrowRes = await fetch(`http://localhost:5000/api/borrow`, {
+        const borrowRes = await fetch(`https://lhms-website.onrender.com/api/borrow`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ userId, bookId: id, borrowDate, returnDate })
@@ -42,7 +42,7 @@ const BookDetail = () => {
         alert("Book borrowed successfully");
         setShowBorrowModal(false);
         // Optionally, refetch book details to update available count
-        fetch(`http://localhost:5000/api/book/${id}`)
+        fetch(`https://lhms-website.onrender.com/api/book/${id}`)
           .then(res => res.json())
           .then(data => setBook(data));
       } catch (err) {

@@ -36,7 +36,7 @@ const Register = () => {
         return alert("Please, fill all the input fields")
       }
       try{
-      const response = await axios.post('https://localhost:5000/api/auth/register', userData);
+      const response = await axios.post('https://lhms-website.onrender.com/api/auth/register', userData);
       alert("User Registration Successful")
     } catch(err){
       alert("Registration Failed")

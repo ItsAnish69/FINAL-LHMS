@@ -15,7 +15,7 @@ const UserDashboard = () => {
   // Fetching the specific user's activity
   useEffect(() => {
     if (!userId) return;
-    axios.get(`http://localhost:5000/api/borrow/user/${userId}`)
+    axios.get(`https://lhms-website.onrender.com/api/borrow/user/${userId}`)
     .then(res => setActivity(res.data))
     .catch(() => setActivity([]));
   }, [userId]);
@@ -23,7 +23,7 @@ const UserDashboard = () => {
   
   useEffect(() => {
     if (!userId) return;
-    axios.get(`http://localhost:5000/api/borrow/${userId}`)
+    axios.get(`https://lhms-website.onrender.com/api/borrow/${userId}`)
     .then(res => setActivity(res.data))
     .catch(() => setActivity([]));
   }, [userId]);
@@ -31,7 +31,7 @@ const UserDashboard = () => {
 
   useEffect(() => {
     if (!userId) return;
-    axios.post(`http://localhost:5000/api/user/${userId}`)
+    axios.post(`https://lhms-website.onrender.com/api/user/${userId}`)
     .then(res => {
       setUser(res.data);
       setLoading(false);
@@ -42,12 +42,12 @@ const UserDashboard = () => {
     // Handle returning a book
     const handleReturn = async (borrowId, bookId) => {
       // Delete borrow record
-      await axios.delete(`http://localhost:5000/api/borrow/${borrowId}`);
+      await axios.delete(`https://lhms-website.onrender.com/api/borrow/${borrowId}`);
       // Update available count
-      const bookRes = await axios.get(`http://localhost:5000/api/book/${bookId}`);
+      const bookRes = await axios.get(`https://lhms-website.onrender.com/api/book/${bookId}`);
       const currentAvailable = bookRes.data.available;
       const newAvailable = currentAvailable + 1;
-      await axios.put(`http://localhost:5000/api/book/${bookId}`, { available: newAvailable });
+      await axios.put(`https://lhms-website.onrender.com/api/book/${bookId}`, { available: newAvailable });
       alert("Book returned successfully");
       window.location.reload();
     };

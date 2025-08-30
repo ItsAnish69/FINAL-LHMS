@@ -18,7 +18,7 @@ const BookManagement = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch(`http://localhost:5000/api/book/`)
+    fetch(`https://lhms-website.onrender.com/api/book/`)
       .then((res) => res.json())
       .then((data) => {
         setBooks(data);
@@ -37,7 +37,7 @@ const BookManagement = () => {
   const confirmDelete = () => {
     if (!selectedBook) return;
 
-    fetch(`http://localhost:5000/api/book/${selectedBook._id}`, {
+    fetch(`https://lhms-website.onrender.com/api/book/${selectedBook._id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
@@ -59,7 +59,7 @@ const BookManagement = () => {
   const confirmEdit = () => {
     if (!selectedBook) return;
 
-    fetch(`http://localhost:5000/api/book/${selectedBook._id}`, {
+    fetch(`https://lhms-website.onrender.com/api/book/${selectedBook._id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(formData),
@@ -82,7 +82,7 @@ const BookManagement = () => {
   };
 
   const confirmAdd = () => {
-    fetch(`http://localhost:5000/api/book/`, {
+    fetch(`https://lhms-website.onrender.com/api/book/`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(formData),
