@@ -28,24 +28,30 @@ const BookDetail = () => {
       setShowBorrowModal(true);
     }
 
-    const handleBorrow = () => {
-    fetch(`http://localhost:5000/api/borrow`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ userId, bookId: id, borrowDate, returnDate})
-    })
-      .then((res) => res.json())
-      .then((newBorrow) => {
+    const handleBorrow = async () => {
+      try {
+        // Borrow the book
+        const borrowRes = await fetch(`http://localhost:5000/api/borrow`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ userId, bookId: id, borrowDate, returnDate })
+        });
+        const newBorrow = await borrowRes.json();
         setBorrows([...borrows, newBorrow]);
-        localStorage.setItem('bookTitle', book.title);
+
         alert("Book borrowed successfully");
-        window.location.reload();
-        setShowAddModal(false);
-      });
-  };
+        setShowBorrowModal(false);
+        // Optionally, refetch book details to update available count
+        fetch(`http://localhost:5000/api/book/${id}`)
+          .then(res => res.json())
+          .then(data => setBook(data));
+      } catch (err) {
+        alert("Failed to borrow book.");
+      }
+    };
 
   return (
-    <>
+    <div>
       <Navbar/>
       {loading ? (
         <div className="p-10 text-center text-xl">Loading...</div>
@@ -83,9 +89,6 @@ const BookDetail = () => {
                onClick={BorrowModal}>
                 Borrow Now
               </button>
-              <button className="bg--200 hover:bg-gray-300 text-gray-800 px-6 py-3 rounded-xl shadow-md transition">
-                Add to Favourite
-              </button>
             </div>
           </div>
         </div>
@@ -97,7 +100,6 @@ const BookDetail = () => {
       <div className="p-6 max-w-6xl mt-10 ml-5 mx-auto">
         <h2 className="text-2xl font-bold mb-4">Comments</h2>
         <div className="border-t border-gray-300 pt-4">
-          <p className="text-gray-700">No comments yet. Be the first to comment on this book!</p>
         </div>
         <div className="mt-4">
           <textarea
@@ -144,7 +146,7 @@ const BookDetail = () => {
         </div>
       )}
 
-    </>
+    </div>
   )};
 
   export default BookDetail;

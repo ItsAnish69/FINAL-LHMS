@@ -15,11 +15,11 @@ const Login = () => {
     password:''
   })
 
-const [selectedRoles, setSelectedRoles] = useState([]);
+
+const [selectedRole, setSelectedRole] = useState("");
 
 const handleRoleChange = (e) => {
-  const options = Array.from(e.target.selectedOptions, option => option.value);
-  setSelectedRoles(options);
+  setSelectedRole(e.target.value);
 };
 
   //gets the name and the value from the input 
@@ -32,37 +32,34 @@ const handleRoleChange = (e) => {
     }
 
     //post the user data in the backend
+
     const handleSubmit = async(e) =>{
-      e.preventDefault()
-     if(!userData.email || !userData.password){
-      return alert("Please, fill all the input fields")
-     }
-     try{
-      const response = await axios.post('http://localhost:5000/api/auth/login', userData);
-      
-      localStorage.setItem("userId", response.data.user.id);
-      localStorage.setItem("userName", response.data.user.name);
-      localStorage.setItem("userEmail", response.data.user.email);
-    
-      const token = response.token;
-      localStorage.setItem("token", token);
-      
-      const userRole = response.data.user.role; // assuming backend returns 'role'
-      if(selectedRoles.includes(userRole)) {
-        if(userRole === 'borrower') {
-          // Roles match, proceed to dashboard
-          window.location.href = '/home';
-        } else if(userRole === 'librarian') {
-          window.location.href = '/admin-dashboard';
-        }
-        //add the success alert
-      alert("Login Successful");
-      } else {
-        alert("Selected Role doesn't match your account.");
+      e.preventDefault();
+      if(!userData.email || !userData.password || !selectedRole){
+        return alert("Please, fill all the input fields and select your role");
       }
-     } catch(err){
-      alert('Login Failed. Please try again');
-     }
+      try{
+        const response = await axios.post('http://localhost:5000/api/auth/login', userData);
+        localStorage.setItem("userId", response.data.user.id);
+        localStorage.setItem("userName", response.data.user.name);
+        localStorage.setItem("userEmail", response.data.user.email);
+        const token = response.token;
+        localStorage.setItem("token", token);
+        const userRole = response.data.user.role;
+        localStorage.setItem("role", userRole);
+        if(selectedRole === userRole) {
+          if(userRole === 'borrower') {
+            window.location.href = '/home';
+          } else if(userRole === 'librarian') {
+            window.location.href = '/admin-dashboard';
+          }
+          alert("Login Successful");
+        } else {
+          alert("Selected Role doesn't match your account.");
+        }
+      } catch(err){
+        alert('Login Failed. Please try again');
+      }
     }
 
 
@@ -128,8 +125,9 @@ const handleRoleChange = (e) => {
                   onChange={handleRoleChange}
                   required
                   className="bg-[#EAE9E9] rounded-2xl w-full placeholder:font-semibold placeholder:text-gray-500 p-4 pl-12"
+                  value={selectedRole}
                 >
-                  <option value="" disabled selected>Select your role</option>
+                  <option value="" disabled>Select your role</option>
                   <option value="borrower">User</option>
                   <option value="librarian">Admin</option>
                 </select>
@@ -141,6 +139,10 @@ const handleRoleChange = (e) => {
               onClick={handleSubmit}>
                 Log In
               </button>
+              <div className="flex justify-center gap-x-3">
+                <p>Don't have an account?</p>
+                <button className="font-bold hover:underline hover:text-[#F25D5D] cursor-pointer" onClick={() => window.location.href = '/register'}>Sign Up</button>
+              </div>
             </form>
             </div>
           </div>

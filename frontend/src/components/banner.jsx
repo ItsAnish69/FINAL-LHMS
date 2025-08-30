@@ -80,7 +80,7 @@ ref={contentRef}>
 {/* Cards Section */}
 <div className="w-full flex flex-col md:flex-row justify-around mt-15 items-center md:items-stretch gap-6 mt-10 px-4">
   {/* card one */}
-  <div className="card bg-red-400 rounded-xl text-white w-full md:w-80 shadow-lg hover:scale-105 hover:translate-y-[-10px] transition-all duration-300">
+  <div className="card bg-[#F25D5D] rounded-xl text-white w-full md:w-80 shadow-lg hover:scale-105 hover:translate-y-[-10px] transition-all duration-300">
     <div className="card-body">
       <h2 className="card-title font-bold text-xl">Always Available</h2>
       <p>
@@ -91,7 +91,7 @@ ref={contentRef}>
   </div>
 
   {/* card two */}
-  <div className="card bg-red-400 rounded-xl text-white w-full md:w-80 shadow-lg hover:scale-105 hover:translate-y-[-10px] transition-all duration-300">
+  <div className="card bg-[#F25D5D] rounded-xl text-white w-full md:w-80 shadow-lg hover:scale-105 hover:translate-y-[-10px] transition-all duration-300">
     <div className="card-body">
       <h2 className="card-title font-bold text-xl">Time Management</h2>
       <p>
@@ -102,7 +102,7 @@ ref={contentRef}>
   </div>
 
   {/* card three */}
-  <div className="card bg-red-400 rounded-xl text-white w-full md:w-80 shadow-lg hover:scale-105 hover:translate-y-[-10px] transition-all duration-300">
+  <div className="card bg-[#F25D5D] rounded-xl text-white w-full md:w-80 shadow-lg hover:scale-105 hover:translate-y-[-10px] transition-all duration-300">
     <div className="card-body">
       <h2 className="card-title font-bold text-xl">Quick Search</h2>
       <p>
@@ -120,8 +120,7 @@ ref={contentRef}>
     // import the bookcover image form the images
     backgroundImage: `url(${BookCover})`,
     backgroundSize: 'cover',
-    backgroundPosition: 'center',
-    backgroundAttachment: 'fixed',
+    backgroundPosition: 'top'
 
   }}
 >

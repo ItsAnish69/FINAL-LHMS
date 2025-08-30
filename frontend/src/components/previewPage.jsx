@@ -1,9 +1,13 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Navbar from './navbar';
 import Banner from './Banner2';
 import Footer from './footer';
 
-export const PreviewPage = () => {
+const PreviewPage = () => {
+  useEffect(() => {
+    localStorage.clear();
+  }, []);
+
   return (
     <>
       <Navbar />
@@ -11,6 +15,6 @@ export const PreviewPage = () => {
       <Footer />
     </>
   )
-}
+} 
 
 export default PreviewPage;

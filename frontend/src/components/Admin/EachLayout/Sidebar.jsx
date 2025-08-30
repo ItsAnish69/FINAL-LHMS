@@ -34,22 +34,22 @@ export const Sidebar = () => {
       <nav className="mt-8 font-semibold">
         <button
           onClick={() => navigate("")}
-          className="w-full flex items-center px-6 py-3 text-left cursor-pointer transition-colors hover:bg-gray-600"> Dashboard
+          className="w-full flex items-center px-6 py-3 text-left cursor-pointer transition-colors hover:bg-white hover:text-red-400"> Dashboard
         </button>
 
-        <button onClick={() => navigate("Users")} className="w-full flex items-center px-6 py-3 text-left cursor-pointer transition-colors hover:bg-gray-200">
+        <button onClick={() => navigate("Users")} className="w-full flex items-center px-6 py-3 text-left cursor-pointer transition-colors hover:bg-white hover:text-red-400">
           Users Management
         </button>
 
-        <button onClick={() => navigate("Books")} className="w-full flex items-center px-6 py-3 text-left cursor-pointer transition-colors hover:bg-gray-200">
+        <button onClick={() => navigate("Books")} className="w-full flex items-center px-6 py-3 text-left cursor-pointer transition-colors hover:bg-white hover:text-red-400">
           Books Management
         </button>
 
-        <button onClick={() => navigate("Borrow-return")} className="w-full flex items-center px-6 py-3 text-left cursor-pointer transition-colors hover:bg-gray-200">
+        <button onClick={() => navigate("Borrow-return")} className="w-full flex items-center px-6 py-3 text-left cursor-pointer transition-colors hover:bg-white hover:text-red-400">
           Borrow & Return
         </button>
 
-        <button onClick={() => navigate("Settings")} className="w-full flex items-center px-6 py-3 text-left cursor-pointer transition-colors hover:bg-gray-200">
+        <button onClick={() => navigate("Settings")} className="w-full flex items-center px-6 py-3 text-left cursor-pointer transition-colors hover:bg-white hover:text-red-400">
           Settings
         </button>
       </nav>

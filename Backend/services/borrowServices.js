@@ -22,7 +22,7 @@ const existingBorrowId = async (userId) => {
 
     //get all Borrow
     const getAllBorrow = async() =>{
-        return await Borrow.find().populate('bookId');
+        return await Borrow.find().populate('bookId').populate('userId');
     }
 
     //get Borrow By Id
@@ -46,7 +46,12 @@ const existingBorrowId = async (userId) => {
             return "Failed to delete the book records"
         } 
         return deleted;
-    }
+    }   
+
+    //get all borrows for a specific user
+    const getUserBorrow = async(userId) => {
+    return await Borrow.find({ userId }).populate('bookId').populate('userId');
+}
 
 
 module.exports={
@@ -56,4 +61,5 @@ module.exports={
     getBorrowById,
     updateBorrowById,
     deleteBorrowById,
+    getUserBorrow,
 }

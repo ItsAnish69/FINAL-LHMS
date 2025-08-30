@@ -16,6 +16,7 @@ import Profile from './components/userDashBoard';
 
 
 import AdminDashboard from "./components/Admin/AdminDashboard";
+import ProtectedRoute from "./components/ProtectedRoute";
 import Dashboard from "./components/Admin/pages/dashboard";
 import UserManagement from "./components/Admin/pages/userManagment";  
 import BookManagement from "./components/Admin/pages/bookManagment";
@@ -29,7 +30,11 @@ const App = () => {
     <Router>
       <Routes>
         {/* grouping the navbar, banner, and footer */}
-        <Route path="/home" element={<Home/>}/>
+        <Route path="/home" element={
+          <ProtectedRoute>
+            <Home />
+          </ProtectedRoute>
+        }/>
         <Route path="/books" element={<Books/>}/>
         <Route path="/about" element={<AboutUs/>}/>
         <Route path="/login" element={<Login/>}/>
@@ -43,7 +48,11 @@ const App = () => {
         <Route path="/user-dashboard" element={<Profile/>}/>
         <Route path="/contact" element={<Contact/>}/>
 
-        <Route path="/admin-dashboard" element={<AdminDashboard/>}>
+        <Route path="/admin-dashboard" element={
+          <ProtectedRoute requiredRole="librarian">
+            <AdminDashboard />
+          </ProtectedRoute>
+        }>
           <Route index element={<Dashboard />} />
           <Route path="users" element={<UserManagement />} />
           <Route path="books" element={<BookManagement />} />

@@ -10,12 +10,9 @@ app.use(express.json());
 
 //connects the frotend with the backend
 app.use(cors({
-    origin: process.env.ORIGIN_CORS, // Adjust this to your frontend URL
+    origin: "*", // Adjust this to your frontend URL
     credentials: true,
 }));
-
-
-app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 //connect to the mongoDB
 mongoose.connect("mongodb+srv://AnishDB:Anish123@cluster0.xkg4wyq.mongodb.net/")

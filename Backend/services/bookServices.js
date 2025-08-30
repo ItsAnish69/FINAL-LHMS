@@ -1,4 +1,5 @@
-    const Book = require('../models/book')
+
+const Book = require('../models/book')
 
     //create user 
     const addBook = async(BookData) =>{
@@ -56,13 +57,12 @@ const bulkInsertBooks = async (books) => {
   return book;
 };
 
-
-    module.exports = {
-        addBook,
-        existingIsbn,
-        getAllBook,
-        getBookById,
-        updateBook,
-        deleteBook,
-        bulkInsertBooks
-    }
+module.exports = {
+    addBook,
+    existingIsbn,
+    getAllBook,
+    getBookById,
+    updateBook,
+    deleteBook,
+    bulkInsertBooks,
+}

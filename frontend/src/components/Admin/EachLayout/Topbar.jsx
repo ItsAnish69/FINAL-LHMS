@@ -30,7 +30,7 @@ const TopBar = ({ activeSection }) => {
           </div>
 
           {/* Logout Button */}
-          <button className="p-1.5 sm:p-2 rounded-md text-gray-500 cursor-pointer text-white hover:bg-white hover:text-gray-500 transition">
+          <button className="p-1.5 sm:p-2 rounded-md text-gray-500 cursor-pointer hover:text-black transition">
             <LogOut
               className="h-4 w-4 sm:h-5 sm:w-5"
               onClick={() =>

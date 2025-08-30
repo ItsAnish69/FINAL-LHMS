@@ -1,9 +1,10 @@
 const mongoose = require('mongoose');
 
 const RecordSchema = new mongoose.Schema({
-    userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
-    bookId: { type: mongoose.Schema.Types.ObjectId, ref: 'Book', required: true },
+    userName: { type: String, required: true },
+    BookTitle: { type: String, required: true },
     issueDate: {type: Date, default: Date.now}
+
 });
 
 module.exports = mongoose.model('Record', RecordSchema);

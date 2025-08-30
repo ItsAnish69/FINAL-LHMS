@@ -18,8 +18,8 @@ const Navbar = () => {
         </>
     )
   return (
-    <>
-    <div className='max-w-screen-2xl container mx-auto md:px-20 bg-[#fcfcfc] fixed top-0 left-0 w-full z-50 shadow-md'>
+    <div>
+    <div className='w-full px-4 md:px-20 bg-[#fcfcfc] fixed top-0 left-0 z-50 shadow-md'>
     <div className="navbar bg-base-100">
   <div className="navbar-start">
     <div className="dropdown">
@@ -62,10 +62,10 @@ const Navbar = () => {
             onClick={e => {
               e.preventDefault(); // Prevent default anchor behavior
               if (window.confirm("Are you sure you want to proceed?")) {
-                //redirect to default page
-                window.location.href = '/'; // 
-                } else {
-                // when clicked on cancel make the sure remain in the respective page
+                // Clear all localStorage on logout
+                localStorage.clear();
+                window.location.href = '/';
+              } else {
                 window.location.href = window.location.href;
               }
             }}>Logout</a></li>
@@ -76,7 +76,7 @@ const Navbar = () => {
 </div>
 </div>
 </div>
-    </>
+    </div>
   )
 }
 

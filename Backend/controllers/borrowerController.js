@@ -1,4 +1,6 @@
 const BorrowController = require('../services/borrowServices')
+const Book = require('../models/book');
+const Borrow = require('../models/borrow');
 
 const addBorrowController = async(req, res) =>{
     const {userId, bookId, borrowDate, returnDate} = req.body;
@@ -15,10 +17,16 @@ const addBorrowController = async(req, res) =>{
     
         // create a new Borrrow Id 
     try{
+        const book = await Book.findById(bookId);
+        if (!book || book.available <= 0) {
+          return res.status(400).json({ message: "Book is not available for borrowing." });
+        }
+        // Proceed to create borrow record and decrement available
         const newBorrow = await BorrowController.addBorrowDetail(req.body);
+        await Book.findByIdAndUpdate(bookId, { $inc: { available: -1 } });
         res.status(201).json(newBorrow);
     } catch(err){
-        res.status(400).json({err: err.message});
+        res.status(400).json({err: err.message});   
     }
 };
 
@@ -58,10 +66,22 @@ const deleteBorrowController = async(req, res) =>{
     }
 };
 
+// Get all borrows for a specific user
+const getUserBorrows = async (req, res) => {
+    try {
+        const userId = req.params.id;
+        const borrows = await BorrowController.getUserBorrow(userId);
+        res.status(200).json(borrows);
+    } catch (err) {
+        res.status(500).json({ err: err.message });
+    }
+};
+
 module.exports = {
     addBorrowController,
     getAllBorrowController,
     getBorrowController,
     updateBorrowController,
     deleteBorrowController,
+    getUserBorrows
 }

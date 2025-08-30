@@ -36,8 +36,8 @@ const Register = () => {
         return alert("Please, fill all the input fields")
       }
       try{
-      const response = await axios.post('http://localhost:5000/api/auth/register', userData);
-      alert("Registration Successfull")
+      const response = await axios.post('https://localhost:5000/api/auth/register', userData);
+      alert("User Registration Successful")
     } catch(err){
       alert("Registration Failed")
     }
@@ -117,7 +117,7 @@ const Register = () => {
               </button>
               <div className="flex justify-center gap-x-3">
                 <p>Already have an account?</p>
-                <button className="font-bold hover:underline hover:text-blue-700 cursor-pointer" onClick={() => window.location.href = '/login'}>Log In</button>
+                <button className="font-bold hover:underline hover:text-[#F25D5D] cursor-pointer" onClick={() => window.location.href = '/login'}>Log In</button>
               </div>
             </form>
             </div>

@@ -52,7 +52,7 @@ const BookManagement = () => {
   // --------- EDIT ---------
   const handleEdit = (book) => {
     setSelectedBook(book);
-    setFormData({ title: book.title, author: book.author, isbn: book.isbn });
+    setFormData({ title: book.title, author: book.author, quantity: book.quantity, available: book.available, cover: book.cover });
     setShowEditModal(true);
   };
 
@@ -104,7 +104,7 @@ const BookManagement = () => {
     <>
       {/* HEADER */}
       <div className="flex justify-between items-center p-4">
-        <h2 className="text-2xl font-bold">User Management</h2>
+        <h2 className="text-2xl font-bold">Book Management</h2>
         <div>
           <button
             onClick={handleAddBook}
@@ -137,7 +137,8 @@ const BookManagement = () => {
               <th className="border-b p-2 text-left w-1/12">ID</th>
               <th className="border-b p-2 text-left w-2/12">Title</th>
               <th className="border-b p-2 text-left w-3/12">Author</th>
-              <th className="border-b p-2 text-left w-4/12">Isbn</th>
+              <th className="border-b p-2 text-left w-3/12">Quantity</th>
+              <th className="border-b p-2 text-left w-3/12">Available</th>
               <th className="border-b p-2 text-left w-3/12">Actions</th>
             </tr>
           </thead>
@@ -154,7 +155,8 @@ const BookManagement = () => {
                   <td className="border-b p-2">{idx + 1}</td>
                   <td className="border-b p-2">{book.title}</td>
                   <td className="border-b p-2">{book.author}</td>
-                  <td className="border-b p-2">{book.isbn}</td>
+                  <td className="border-b p-2">{book.quantity}</td>
+                  <td className="border-b p-2">{book.available}</td>
                   <td className="border-b p-2">
                     <div className="flex space-x-5">
                       <button

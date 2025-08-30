@@ -85,7 +85,7 @@ const Banner2 = () => {
       <p className="mb-5">
        Get started from today and be prepare to experience the future of library management.
       </p>
-      <button className="btn rounded-xl bg-white">Get Started</button>
+      <button className="btn rounded-xl bg-white" onClick={() => { window.location.href = '/login'; }}>Get Started</button>
     </div>
   </div>
 </div>

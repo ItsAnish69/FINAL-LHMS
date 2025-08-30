@@ -13,7 +13,7 @@ const UserManagement = () => {
 
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedUser, setSelectedUser] = useState(null);
-  const [formData, setFormData] = useState({ name: "", email: "", password: "", role:"borrower" });
+  const [formData, setFormData] = useState({ name: "", email: "", password: "", role:"" });
 
   useEffect(() => {
     fetch(`http://localhost:5000/api/user/`)
@@ -73,7 +73,7 @@ const UserManagement = () => {
 
   // --------- ADD ---------
   const handleAddUser = () => {
-    setFormData({ name: "", email: "", password: "", role:"borrower" });
+    setFormData({ name: "", email: "", password: "", role:"" });
     setShowAddModal(true);
   };
 
@@ -134,6 +134,7 @@ const UserManagement = () => {
               <th className="border-b p-2 text-left w-1/12">ID</th>
               <th className="border-b p-2 text-left w-4/12">Name</th>
               <th className="border-b p-2 text-left w-4/12">Email</th>
+              <th className="border-b p-2 text-left w-4/12">Role</th>
               <th className="border-b p-2 text-left w-3/12">Actions</th>
             </tr>
           </thead>
@@ -150,6 +151,7 @@ const UserManagement = () => {
                   <td className="border-b p-2">{idx + 1}</td>
                   <td className="border-b p-2">{user.name}</td>
                   <td className="border-b p-2">{user.email}</td>
+                  <td className="border-b p-2">{user.role}</td>
                   <td className="border-b p-2">
                     <div className="flex space-x-5">
                       <button
@@ -277,6 +279,20 @@ const UserManagement = () => {
           setFormData({ ...formData, password: e.target.value })
         }
       />
+
+      <select
+        type="role"
+        className="border w-full p-2 mb-3 rounded"
+        placeholder="Role"
+        value={formData.role}
+        onChange={(e) =>
+          setFormData({ ...formData, role: e.target.value })
+        }
+      >
+        <option value="">Select Role</option>
+        <option value="librarian">Librarian</option>
+        <option value="borrower">Borrower</option>
+      </select>
 
       <div className="flex gap-3 mt-4">
         <button
